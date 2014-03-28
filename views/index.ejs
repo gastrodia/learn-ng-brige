@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <!--
+    用来放置一些css引用 ，方便拷贝
+    同时方便检测项目中css引用的兼容性
+    -->
+    <link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap-theme.min.css"/>
+
+    <link rel="stylesheet" href="/components/jquery-ui/themes/overcast/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="/components/jquery-ui/themes/overcast/jquery.ui.theme.css"/>
+
+    <link rel="stylesheet" href="/components/ng-grid/ng-grid.min.css"/>
+</head>
+<body>
+<!--ng-grid-->
+<div ng-controller="homeCtrl"></div>
+
+<script src="/components/jquery/jquery.min.js"></script>
+<script src="/components/requirejs/require.js"></script>
+<script src="/config.js"></script>
+
+
+<script>
+
+    require(['jquery', 'angular', 'controllers/homeCtrl'], function ($, angular) {
+        $(function () { // using jQuery because it will run this even if DOM load already happened
+            angular.bootstrap(document, ['mainApp']);
+        });
+    });
+
+  /*  var HomeCtrl = function ($scope, $routeParams, $location, $resource) {
+        var PizzaDb = $resource('/api/pizzas/:id', { id: '@_id' });
+
+        // Magic, you are ready now !
+
+        var new_pizza = new PizzaDb({
+            author: 'agoodpizayolo',
+            color: 'blue',
+            size: 999
+        });
+
+        new_pizza.$save(function (save_the_pizza) {
+            console.log('Success pizza - ', save_the_pizza);
+        });
+
+        PizzaDb.get({id: '50b40dd6ed3f055a27000001'}, function (pizza) {
+            pizza.color = 'UV';
+            pizza.$save();
+        });
+    };
+
+    angular.module('myApp',['ngRoute','ngResource']);
+
+*/
+/*    require(['jquery','angular','angular-route','angular-resource'],function($,angular,ngRoute,ngResource) {
+        angular.module('myApp', ['ngRoute','ngResource'])
+                .controller('HomeCtrl', function ($scope, $routeParams, $location, $resource) {
+                    var PizzaDb = $resource('/api/pizzas/:id', { id: '@_id' });
+
+                    // Magic, you are ready now !
+
+                    var new_pizza = new PizzaDb({
+                        author: 'agoodpizayolo',
+                        color: 'blue',
+                        size: 999
+                    });
+
+                    new_pizza.$save(function (save_the_pizza) {
+                        console.log('Success pizza - ', save_the_pizza);
+                    });
+
+                    PizzaDb.get({id: '50b40dd6ed3f055a27000001'}, function (pizza) {
+                        pizza.color = 'UV';
+                        pizza.$save();
+                    });
+                });
+    });*/
+</script>
+</body>
+</html>
